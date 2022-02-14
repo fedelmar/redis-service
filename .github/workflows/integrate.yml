@@ -38,6 +38,6 @@ jobs:
         # Variable de entorno utilizada por el script `client.js` para crear un nuevo cliente Redis.
         env:
           # El nombre del host utilizado para comunicarse con el contenedor de servicio Redis
-          REDIS_HOST: redis
+          REDIS_HOST: 127.0.0.1
           # El puerto Redis predeterminado
           REDIS_PORT: 6379
