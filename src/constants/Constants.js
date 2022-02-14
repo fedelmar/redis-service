@@ -9,29 +9,11 @@ const {
   DIDI_SERVER,
   MONGO_URI,
   REDIS_URI,
-  VUS_URL,
-  VUS_APP_VERS,
-  VUS_API_KEY,
-  VUS_API,
   IP_ADDRESS,
   VERSION_APP,
   PREFIJO_REDIS,
 } = process.env;
 
-// assert.ok(PORT, 'No esta definida la varibale PORT');
-// assert.ok(ENVIRONMENT, 'No esta definida la varibale ENVIRONMENT');
-// assert.ok(NAME, 'No esta definida la varibale NAME');
-// assert.ok(VERSION, 'No esta definida la varibale VERSION');
-assert.ok(VUS_URL, 'No esta definida la variable VUS_URL');
-// assert.ok(VUS_APP_VERS, 'No esta definida la variable VUS_APP_VERS');
-assert.ok(VUS_API_KEY, 'No esta definida la variable API_KEY');
-assert.ok(VUS_API, 'No esta definida la variable VUS_API');
-// assert.ok(DIDI_SERVER, 'No esta definida la variable DIDI_SERVER');
-// assert.ok(MONGO_URI, 'No esta definida la variable MONGO_URI');
-// assert.ok(REDIS_URI, 'No esta definida la variable REDIS_URI');
-// assert.ok(IP_ADDRESS, 'No esta definida la variable IP_ADDRESS');
-// assert.ok(VERSION_APP, 'No esta definida la variable VERSION_APP');
-assert.ok(PREFIJO_REDIS, 'No esta definida la variable PREFIJO_REDIS');
 
 module.exports = {
   PORT,
