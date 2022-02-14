@@ -29,24 +29,9 @@ jobs:
           node-version: '16.x'
       - name: 'install dependencies'
         run: npm install
-      - name: 'run eslint'
-        run: npm run lint
       - name: 'npm run tests'
         run: npm test
         env:
-          VUS_URL: ${{ secrets.VUS_URL }}
-          VUS_API: ${{ secrets.VUS_API }}
-          VUS_API_KEY: ${{ secrets.VUS_API_KEY }}
           REDIS_URI: ${{ secrets.REDIS_URI }}
           REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
           PREFIJO_REDIS: ${{ secrets.PREFIJO_REDIS }}
-  build-image:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Build Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          context: .
-          push: false
