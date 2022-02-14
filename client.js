@@ -5,7 +5,7 @@ const config = {
   host: 'localhost',
   port: 6379,
 };
-const client = await redis.createClient(config);
+const client = redis.createClient(config);
 
 client.on('connect', () => console.log('Redis Client connect'));
 client.on('ready', () => console.log('Redis Client ready'));
