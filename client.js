@@ -1,22 +1,31 @@
 const redis = require("redis");
 
-// Crea un nuevo cliente Redis
-// Si no se establece REDIS_HOST, el host predeterminado es localhost
-// Si no se establece REDIS_PORT, el puerto predeterminado es 6379
-const redisClient = redis.createClient({
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT  
-});
 
-redisClient.on("error", function(err) {
-    console.log("Error " + err);
-});
+let client;
+(async () => {
+  try {
+    const config = {
+      host: 'localhost',
+      port: 6379,
+    };
+    client = await redis.createClient(config);
 
-redisClient.connect();
+    client.on('connect', () => console.log('Redis Client connect'));
+    client.on('ready', () => console.log('Redis Client ready'));
+    client.on('end', () => console.log('Redis Client end'));
+    client.on('error', (err) => console.log('Redis Client Error', err));
+    client.on('reconnecting', () => console.log('Redis Client reconnecting'));
 
+    await client.connect();
+  } catch (e) {
+    console.log(e);
+  }
+})();
+
+console.log(client)
 // Establece la clave "octocat" para un valor de "Mona the octocat"
-redisClient.set("octocat", "Mona the Octocat", redis.print);
+client.set("octocat", "Mona the Octocat", redis.print);
 
 module.exports = {
-  redisClient,
+  client,
 }
