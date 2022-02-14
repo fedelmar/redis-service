@@ -16,6 +16,10 @@ let redisClient;
       console.log("Error " + err);
      });
     await redisClient.connect();
+
+    // Establece la clave "octocat" para un valor de "Mona the octocat"
+    redisClient.set("octocat", "Mona the Octocat", redis.print);
+
   } catch (e) {
     console.log(e);
   }
@@ -23,8 +27,7 @@ let redisClient;
 
 
 
-// Establece la clave "octocat" para un valor de "Mona the octocat"
-redisClient.set("octocat", "Mona the Octocat", redis.print);
+
 
 module.exports = {
   redisClient,
