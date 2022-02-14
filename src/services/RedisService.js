@@ -1,13 +1,9 @@
 /* eslint-disable no-console */
 const redis = require('redis');
-const { REDIS_URI, PREFIJO_REDIS } = require('../constants/Constants');
+const { PREFIJO_REDIS } = require('../constants/Constants');
 const { missingKey, missingValue } = require('../constants/serviceErrors');
 
-const config = {
-  url: REDIS_URI,
-  password: process.env.REDIS_PASSWORD,
-};
-const client = redis.createClient(config);
+const client = redis.createClient();
 
 client.on('connect', () => console.log('Redis Client connect'));
 client.on('ready', () => console.log('Redis Client ready'));
