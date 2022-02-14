@@ -10,6 +10,7 @@ jobs:
 
     # Contenedores de servicio para ejecutar con `container-job`
     services:
+      redis:
       # Etiqueta usada para acceder al contenedor de servicio   redis:
         # Imagen del contenedor Docker Hub
         image: redis
