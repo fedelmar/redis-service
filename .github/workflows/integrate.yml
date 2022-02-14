@@ -36,7 +36,7 @@ jobs:
       - name: Connect to Redis
         # Ejecuta un script que crea un cliente Redis, rellena
         # el cliente con datos y recupera datos
-        run: node client.js
+        run: npm run test
         # Variable de entorno utilizada por el script `client.js` para  crear
         # un nuevo cliente Redis.
         env:
