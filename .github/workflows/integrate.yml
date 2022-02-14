@@ -24,23 +24,12 @@ jobs:
           - 6379:6379
 
     steps:
-      # Descarga una copia del código en tu repositorio antes de ejecutar pruebas de CI
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # Realiza una instalación limpia de todas las dependencias en el archivo `package.json`
-      # Para obtener más información, consulta https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
-      - name: Connect to Redis
-        # Ejecuta un script que crea un cliente Redis, rellena
-        # el cliente con datos y recupera datos
+      - name: Tests
+
         run: npm run test
-        # Variable de entorno utilizada por el script `client.js` para  crear
-        # un nuevo cliente Redis.
-        env:
-          # El nombre del host utilizado para comunicarse con el contenedor del servicio Redis
-          REDIS_HOST: localhost
-          # El puerto Redis predeterminado
-          REDIS_PORT: 6379
