@@ -13,7 +13,10 @@ client.on('end', () => console.log('Redis Client end'));
 client.on('error', (err) => console.log('Redis Client Error', err));
 client.on('reconnecting', () => console.log('Redis Client reconnecting'));
 
-client.connect();
+(async () => {
+  await client.connect();
+})();
+
 console.log(client)
 // Establece la clave "octocat" para un valor de "Mona the octocat"
 client.set("octocat", "Mona the Octocat", redis.print);
