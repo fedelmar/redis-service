@@ -17,14 +17,14 @@ let client;
     client.on('reconnecting', () => console.log('Redis Client reconnecting'));
 
     await client.connect();
+    console.log(client)
+    // Establece la clave "octocat" para un valor de "Mona the octocat"
+    client.set("octocat", "Mona the Octocat", redis.print);
   } catch (e) {
     console.log(e);
   }
 })();
 
-console.log(client)
-// Establece la clave "octocat" para un valor de "Mona the octocat"
-client.set("octocat", "Mona the Octocat", redis.print);
 
 module.exports = {
   client,
