@@ -9,13 +9,13 @@ let client;
     client = redis.createClient({
       url: REDIS_URI
     });
-    
-    client.on('error', (err) => console.log('Redis Client Error', err));
-    await client.connect();
   } catch (error) {
     console.log(error)
     throw error;
   }
+    
+  client.on('error', (err) => console.log('Redis Client Error', err));
+  await client.connect();
 })();
 
 const get = async (key) => {
