@@ -2,7 +2,6 @@
 const redis = require('redis');
 const { PREFIJO_REDIS, REDIS_URI } = require('../constants/Constants');
 const { missingKey, missingValue } = require('../constants/serviceErrors');
-console.log(REDIS_URI)
 
 let client;
 (async () => {
