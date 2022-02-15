@@ -4,14 +4,14 @@ const { PREFIJO_REDIS, REDIS_URI } = require('../constants/Constants');
 const { missingKey, missingValue } = require('../constants/serviceErrors');
 console.log(REDIS_URI)
 
-const client = redis.createClient({
-  url: REDIS_URI
-});
-
-client.on('error', (err) => console.log('Redis Client Error', err));
-
+let client;
 (async () => {
   try {
+    client = redis.createClient({
+      url: REDIS_URI
+    });
+    
+    client.on('error', (err) => console.log('Redis Client Error', err));
     await client.connect();
   } catch (error) {
     console.log(error)
