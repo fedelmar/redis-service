@@ -5,11 +5,7 @@ const { missingKey, missingValue } = require('../constants/serviceErrors');
 
 const client = redis.createClient();
 
-client.on('connect', () => console.log('Redis Client connect'));
-client.on('ready', () => console.log('Redis Client ready'));
-client.on('end', () => console.log('Redis Client end'));
 client.on('error', (err) => console.log('Redis Client Error', err));
-client.on('reconnecting', () => console.log('Redis Client reconnecting'));
 
 (async () => {
   await client.connect();
