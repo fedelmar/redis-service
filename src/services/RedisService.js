@@ -11,6 +11,7 @@ client.on('error', (err) => console.log('Redis Client Error', err));
   try {
     await client.connect();
   } catch (error) {
+    console.log(error)
     throw error;
   }
 })();
