@@ -8,7 +8,11 @@ const client = redis.createClient();
 client.on('error', (err) => console.log('Redis Client Error', err));
 
 (async () => {
-  await client.connect();
+  try {
+    await client.connect();
+  } catch (error) {
+    throw error;
+  }
 })();
 
 const get = async (key) => {
