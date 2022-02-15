@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 const redis = require('redis');
-const { PREFIJO_REDIS } = require('../constants/Constants');
+const { PREFIJO_REDIS, REDIS_URI } = require('../constants/Constants');
 const { missingKey, missingValue } = require('../constants/serviceErrors');
 
-const client = redis.createClient();
+const client = redis.createClient({
+  url: REDIS_URI
+});
 
 client.on('error', (err) => console.log('Redis Client Error', err));
 
