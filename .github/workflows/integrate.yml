@@ -31,5 +31,7 @@ jobs:
         run: npm ci
 
       - name: Tests
-
         run: npm run test
+        env:
+          PREFIJO_REDIS: ${{ secrets.PREFIJO_REDIS }}
+          REDIS_URI: ${{ secrets.REDIS_URI }}
