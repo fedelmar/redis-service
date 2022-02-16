@@ -14,6 +14,7 @@ let client;
     await client.connect();
   } catch (error) {
     console.log(error)
+    throw error;
   }
 })();
 
